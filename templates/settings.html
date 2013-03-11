@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1>Settings</h1>
+
+
+<form class="bs-docs-example">
+            <fieldset>
+              <legend>API Key</legend>
+              <input id="api_key" type="text" placeholder="" style="width:320px;">
+              <span class="help-block">Find your API key on the <a target="_blank" href="{{ base_url }}/users/edit"><i>Account Settings</i></a> PassTools page. 
+                <br/>You may need an administrator to enable your account for API use.</span>
+                <br/>
+              <button type="submit" class="btn">Save Settings</button>
+            </fieldset>
+          </form>
+
+{% endblock %}

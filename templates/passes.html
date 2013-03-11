@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+<h1>Passes</h1>
+<h4>"List Passes" API Method</h4>
+
+<table class="table table-striped" style="margin:20px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+             <th>URL</th>
+            <th>Template</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody>	
+    {% for pt_pass in passes %}
+    
+{% set download_url = pt_pass.url.replace('https://localhost/', 'http://localhost:8080/') %}
+
+                <tr>  
+                	<td> <a href="/pass/{{ pt_pass.pass_id }}" class="btn btn-info">{{ pt_pass.pass_id }}</a> </td>
+            		<td> <a starget="_blank" href="{{ download_url }}?api_key={{ api_key }}" class="btn">Download</a> </td>
+            		<td> <a href="/template/{{ pt_pass.template_id }}" class="btn">{{ pt_pass.template_id }}</a> </td>
+            		<td>{{ pt_pass.created|timesince }}</td>
+                </tr>
+     {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

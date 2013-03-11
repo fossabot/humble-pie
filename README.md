@@ -1,4 +1,40 @@
-humble-pie
-==========
+HumblePie
+==============
 
-HumblePie | for Passtools API Testing
+A simple Passtools testing app built with [Flask](http://flask.pocoo.org/). 
+
+## Running HumblePie
+
+Install Flask using Pip: "pip install Flask". From the squarepig directory run "python app.py". Navigate your web browser to localhost:5000. 
+
+## Deploying to Heroku. 
+
+A "requirements.txt" is included for easy deployment to [Heroku](https://devcenter.heroku.com/).
+
+## Resources 
+
+* See [passtools-python README](https://github.com/tello/passtools-python/) for more information on setting up the Passtools-Python library. 
+* Indexed documentation for the python SDK is available at [http://tello.github.com/passtools-python/](http://tello.github.com/passtools-python/).
+
+## Features
+
+### Template API Methods
+
+* Retrieve list of templates
+* View detailed profile for each template
+
+### Pass API Methods
+
+* Create pass from a template
+* Retrieve list of passes
+* View detailed profile for each pass
+* Download pass
+
+## Roadmap
+
+* Simple UI for editing template fields and pass fields, and saving these changes via the `update_pass` view handler. 
+* SQLite database for saving preferences, such as the API key used for making requests. 
+* More features that lend themselves to real-world use cases - analytics, etc.
+
+
+
