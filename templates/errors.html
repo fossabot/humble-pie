@@ -4,5 +4,29 @@
 
 <h1>Errors</h1>
 
+{% if e %}
+<div class="alert alert-success" style="max-width:450px;text-align:center;margin-top:20px;">
+	An error has been generated for the <b>{{ e.replace('_',' ').title() }}</b> API method
+</div>
+{% endif %}
 
+<div style="margin:10px; padding:10px;">
+	<br/>
+<a href="/errors/list_templates" class="btn btn-danger">List Templates Error</a>
+<br/><br/>
+<a href="/errors/get_template" class="btn btn-danger">Get Template Error</a>
+<br/><br/>
+<a href="/errors/list_passes" class="btn btn-danger">List Passes Error</a>
+<br/><br/>
+<a href="/errors/create_pass" class="btn btn-danger">Create Pass Error</a>
+<br/><br/>
+<a href="/errors/get_pass" class="btn btn-danger">Get Pass Error</a>
+<br/><br/>
+<a href="/errors/update_pass" class="btn btn-danger">Update Pass Error</a>
+<br/><br/>
+<a href="/errors/download_pass" class="btn btn-danger">Download Pass Error</a>
+<br/><br/>
+<a href="/errors/delete_pass" class="btn btn-danger">Delete Pass Error</a>
+<br/><br/>
+</div>
 {% endblock %}

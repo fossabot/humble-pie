@@ -22,11 +22,11 @@ except ImportError:
 PROD_BASE_URL = 'http://www.passtools.com'
 DEV_BASE_URL = 'http://localhost:3000'
 
-if '/app/.heroku/' in os.environ.get('PATH',''):
+if '/app/.heroku/' in os.environ.get('PATH',''): # production
 	API_KEY = PROD_KEY
 	BASE_URL = PROD_BASE_URL
 	API_URL = None # default
-else:
+else: # development
 	API_KEY = DEV_KEY
 	BASE_URL = DEV_BASE_URL 
 	API_URL = 'http://localhost:8080/v1'
@@ -112,9 +112,37 @@ def delete_pass(pass_id):
 @app.route('/errors')
 def errors():
 	context = BASE_CONTEXT.copy()
-	context.update({ 'page': 'errors' })
+	context.update({ 'page': 'errors', 'e': flask.request.args.get('e') })
 	return flask.render_template('errors.html', **context)
 
+@app.route('/errors/<error_type>')
+def generate_error(error_type):
+	pt_service = passtools.Service(api_key=API_KEY,api_url=API_URL)
+
+	class ErrorGenerator():
+		def list_templates(self):
+			pt_service.list_templates(order='invalid_value')
+		def get_template(self):
+			pt_service.get_template(00000)
+		def list_passes(self):
+			pt_service.list_passes(order='invalid_value')
+		def create_pass(self):
+			pt_service.create_pass(00000)
+		def get_pass(self):
+			pt_service.get_pass(00000)	
+		def update_pass(self):
+			pt_service.update_pass(00000)
+		def download_pass(self):
+			pt_service.download_pass(00000)
+		def delete_pass(self):
+			pt_service.delete_pass(00000)									
+
+	error_generator = ErrorGenerator()
+	try:
+		getattr(error_generator, error_type)()
+	except passtools.exceptions.PassToolsException:
+		logging.debug('Passtools Exception generated for %s' % error_type)
+	return flask.redirect('/errors?e=' + error_type)	
 
 
 """

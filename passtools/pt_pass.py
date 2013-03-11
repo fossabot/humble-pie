@@ -36,6 +36,7 @@ class Pass(object):
         @return: None
         """
         super(Pass, self).__init__()
+        self.pass_id = None
         from client import PassToolsClient
         self.api_client = api_client or PassToolsClient()
         if template_id and template_fields_model:
