@@ -1,7 +1,9 @@
 HumblePie
 ==============
 
-A simple Passtools testing app built with [Flask](http://flask.pocoo.org/). 
+A simple Passtools testing app built with [Flask](http://flask.pocoo.org/).
+
+### [Link: Example HumblePie Server](http://protected-castle-1940.herokuapp.com/)
 
 ## Running HumblePie
 
