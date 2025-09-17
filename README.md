@@ -6,6 +6,8 @@ A simple Passtools testing app built with [Flask](http://flask.pocoo.org/).
 ### [Link: Example HumblePie Server](http://protected-castle-1940.herokuapp.com/)
 
 ## Running HumblePie
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Furbanairship%2Fhumble-pie.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Furbanairship%2Fhumble-pie?ref=badge_shield)
+
 
 Install Flask using Pip: "pip install Flask". From the squarepig directory run "python app.py". Navigate your web browser to localhost:5000. 
 
@@ -40,3 +42,7 @@ A "requirements.txt" is included for easy deployment to [Heroku](https://devcent
 
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Furbanairship%2Fhumble-pie.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Furbanairship%2Fhumble-pie?ref=badge_large)
